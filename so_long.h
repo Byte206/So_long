@@ -45,6 +45,15 @@ typedef struct s_game
   int   weight;
   int   player_x;
   int   player_y;
+  int	move_count;
+  int	collectibles;
+  void	*img_wall;
+  void	*img_floor;
+  void	*img_player;
+  void	*img_player_moving_right;
+  void	*img_player_moving_left;
+  void	*img_collectible;
+  void	*img_exit;
 }
 
 
