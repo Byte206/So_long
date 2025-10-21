@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:59:53 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/21 12:05:45 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/21 13:51:41 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,34 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include "minilibx-linux/mlx.h"
+# include "libft/libft.h"
+
+typedef struct s_counts
+{
+  int player_count;
+  int exit_count;
+  int collect_count;
+
+} t_counts;
+
+typedef struct s_flood_data
+{
+  int width;
+  int height;
+  int c_found;
+  int e_found;
+} t_flood_data;
+
+typedef struct s_game
+{
+  void  *mlx;
+  void  *window;
+  char  **map;
+  int   width;
+  int   weight;
+  int   player_x;
+  int   player_y;
+}
+
 
 #endif
