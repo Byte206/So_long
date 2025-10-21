@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gamorcil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 11:59:53 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/21 12:05:45 by gamorcil         ###   ########.fr       */
+/*   Created: 2025/01/13 16:32:24 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/01/13 16:34:47 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include "minilibx-linux/mlx.h"
-
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+	{
+		c += 32;
+	}
+	return (c);
+}

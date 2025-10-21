@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gamorcil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 11:59:53 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/21 12:05:45 by gamorcil         ###   ########.fr       */
+/*   Created: 2025/01/19 17:17:29 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/01/19 18:51:27 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include "minilibx-linux/mlx.h"
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*new;
 
-#endif
+	while (*lst)
+	{
+		new = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = new;
+	}
+	free(*lst);
+	*lst = NULL;
+}
