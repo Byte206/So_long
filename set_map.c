@@ -12,53 +12,43 @@
 
 #include "so_long.h"
 
-t_list	*get_map_line(char *map_file)
+int	get_num_of_lines(char *map_file)
 {
 	int		fd;
-	t_list	*lines;
-	t_list	*new;
-	t_list	*line;
+	int		i;
+	char	*line;
 
+	i = 0;
 	fd = open(map_file, O_RDONLY);
-	if (fd < 0)
-		exit_error("Error opening map file\n");
-	lines = NULL;
 	line = get_next_line(fd);
 	while (line)
 	{
-		new = ft_lstnew(line);
-		if (!new)
-			exit_error("Error opening map file\n");
-		ft_lstadd_back(&lines, new);
+		i++;
 		line = get_next_line(fd);
 	}
 	close(fd);
-	return (lines)
+	return (i);
 }
+
 
 char	**set_map(char *map_file)
 {
 	int		i;
 	int		fd;
+	int		len;
 	char	**map;
+	char	*str;
 
+	fd = open(map_file, O_RDONLY);
 	i = 0;
-	fd = open(map_file, O_RDONLY)
-	if (fd < 0)
-		exit_error("Error opening map file\n");
-	str = get_next_line(fd)
-	while (str)
-	{
-		i++;
-		str = get_next_line(fd);
-	}
-	map = malloc(sizeof(char *) * (i + 1);
-	map[i] = '\0';
-	i = 0;
-	while (map[i])
+	len = get_num_of_lines(map_file);
+	map = malloc(sizeof(char *) * (len + 1));
+	map[len] = '\0';
+	while (i < len)
 	{
 		map[i] = get_next_line(fd);
 		i++;
 	}
+	close(fd);
 	return (map);
 }

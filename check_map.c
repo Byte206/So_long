@@ -12,22 +12,59 @@
 
 #include "so_long.h"
 
-void	check_extension(char *str)
+void	check_extension(char *map_file)
 {
 	int	i;
 
-	i = ft_strlen(str);
-	if (ft_strncmp(str + i - 4, ".ber", 4) != 0 || i < 4)
+	i = ft_strlen(map_file);
+	if (ft_strncmp(map_file + i - 4, ".ber", 4) != 0 || i < 4)
 		exit_error("Wrong file extension\n");
 }
 
+void	check_width(char **map)
+{
+	int	i;
 
-char	**check_map(char *str)
+	i = 0;
+	while (map[i + 1])
+	{
+		if (ft_strlen(map[i]) != ft_strlen(map[i + 1]))
+			exit_error("Map lines dosent have same width\n");
+		i++;
+	}
+}
+
+void	check_repeated(char **map)
+{
+	int i;
+	int j;
+	int count;
+
+	i = 0;
+	count = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'E' || map[i][j] == 'P')
+				count++;
+			j++;
+		}
+		i++;
+	}
+	if (count != 2)
+		exit_error("Wrong number of exits or players in map\n");
+}
+
+char	**check_map(char *map_file)
 {
 	char	**map;
 
-	check_extension(str);
-	map = set_map(str);
+	check_extension(map_file);
+	map = set_map(map_file);
+	check_width(map);
+	check_repeated(map);
 
 	return (map);
 }

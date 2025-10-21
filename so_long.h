@@ -19,6 +19,9 @@
 # include <fcntl.h>
 # include "minilibx-linux/mlx.h"
 # include "libft/libft.h"
+# include "gnl/get_next_line.h"
+# include "ft_printf/ft_printf.h"
+
 
 typedef struct s_counts
 {
@@ -54,7 +57,12 @@ typedef struct s_game
   void	*img_player_moving_left;
   void	*img_collectible;
   void	*img_exit;
-}
+}	t_game;
 
 
+char	**set_map(char *map_file);
+char	**check_map(char *map_file);
+void	check_extension(char *map_file);
+void	exit_error(char *str);
+	
 #endif

@@ -20,4 +20,5 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		exit_error("Wrong arguments\nUsage: ./so_long.h [file_to_map]\n");
 	map = check_map(argv[1]);
+	prepare_game(&game, map);
 }
