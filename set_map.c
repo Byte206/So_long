@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int	get_num_of_lines(char *map_file)
+static  int	get_num_of_lines(char *map_file)
 {
 	int		fd;
 	int		i;

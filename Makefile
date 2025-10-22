@@ -23,6 +23,10 @@ SRCS = main.c \
        check_map.c \
        set_map.c \
        error.c \
+	   render_map.c \
+	   prepare_game.c \
+	   set_hooks.c \
+	   images.c \
        gnl/get_next_line.c \
        gnl/get_next_line_utils.c
 

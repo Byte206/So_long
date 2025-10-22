@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	check_extension(char *map_file)
+static void	check_extension(char *map_file)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ void	check_extension(char *map_file)
 		exit_error("Wrong file extension\n");
 }
 
-void	check_width(char **map)
+static void	check_width(char **map)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ void	check_width(char **map)
 	}
 }
 
-void	check_repeated(char **map)
+static void	check_repeated(char **map)
 {
 	int i;
 	int j;
