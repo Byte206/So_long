@@ -22,18 +22,24 @@
 # include "gnl/get_next_line.h"
 # include "ft_printf/ft_printf.h"
 
+
+# define WALL '1'
+# define FLOOR '0'
+# define EXIT 'E'
+# define PLAYER 'P'
 # define TILE_SIZE 64
 # define KEY_ESC 53
 # define KEY_W 119
 # define KEY_UP 126
 # define KEY_A 0
-# define KEY_LEF 123
+# define KEY_LEFT 123
 # define KEY_S 1
 # define KEY_DOWN 125 
 # define KEY_D 2
 # define KEY_RIGHT 124 
 # define MOVING_RIGHT 1
 # define MOVING_LEFT 2
+
 
 
 typedef struct s_counts

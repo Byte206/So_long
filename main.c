@@ -21,4 +21,5 @@ int main(int argc, char **argv)
 	ft_memset(&game, 0, sizeof(t_game));
 	game->map = check_map(argv[1]);
 	prepare_game(game);
+	mlx_loop(game->mlx);
 }

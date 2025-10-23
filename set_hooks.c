@@ -12,6 +12,13 @@
 
 #include "so_long.h"
 
+void	exit_game(t_game *game)
+{
+	if (game->window)
+		mlx_destroy_window(game->mlx, game->window);
+	exit (0);
+}
+
 int	close_window(t_game *game)
 {
 	exit_game(game);
@@ -25,7 +32,7 @@ int	handle_keypress(int key, t_game *game)
 	else if (key == KEY_W || key == KEY_UP)
 		move_player(game, 0 , -1);
 	else if (key == KEY_S || key == KEY_DOWN)
-		move_player(game, = 0, 1);
+		move_player(game,  0, 1);
 	else if (key == KEY_A || KEY_LEFT)
 		move_player(game, -1, 0);
 	else if (key == KEY_D || KEY_RIGHT)
