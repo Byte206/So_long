@@ -12,7 +12,24 @@
 
 #include "so_long.h"
 
-static int	make_move(t_game *game, int x, int y)
+static void	make_move(t_game *game, int x, int y)
+{
+	if (game->map[y][x] == 'C')
+	{
+		game->map[y][x] == FLOOR;
+		game->collectibles--;
+	}
+	if (game->map[y][x] == EXIT && game->collectibles == 0)
+	{
+		ft_printf("Game finished!\n");
+		exit_game(game);
+	}
+	game->player_x = x;
+	game->player_y = y;
+	game->moves++;
+}
+
+static int	move_is_valid(t_game *game, int x, int y)
 {
 	if (game->map[y][x] == WALL)
 		return (0);

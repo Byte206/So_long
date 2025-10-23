@@ -110,5 +110,9 @@ char	**set_map(char *map_file);
 //images.c
 void	load_images(t_game *game);
 
+// move.c
+void	move_player(t_game *game, int x, int y);
+
+
 
 #endif

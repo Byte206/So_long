@@ -27,6 +27,7 @@ SRCS = main.c \
 	   prepare_game.c \
 	   set_hooks.c \
 	   images.c \
+	   move.c \
        gnl/get_next_line.c \
        gnl/get_next_line_utils.c
 

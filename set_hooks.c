@@ -33,9 +33,9 @@ int	handle_keypress(int key, t_game *game)
 		move_player(game, 0 , -1);
 	else if (key == KEY_S || key == KEY_DOWN)
 		move_player(game,  0, 1);
-	else if (key == KEY_A || KEY_LEFT)
+	else if (key == KEY_A || key == KEY_LEFT)
 		move_player(game, -1, 0);
-	else if (key == KEY_D || KEY_RIGHT)
+	else if (key == KEY_D || key == KEY_RIGHT)
 		move_player(game, 1, 0);
 	render_map(game);
 	return (0);
