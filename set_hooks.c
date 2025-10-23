@@ -30,9 +30,9 @@ int	handle_keypress(int key, t_game *game)
 	if (key == KEY_ESC)
 		exit_game(game);
 	else if (key == KEY_W || key == KEY_UP)
-		move_player(game, 0 , -1);
+		move_player(game, 0, -1);
 	else if (key == KEY_S || key == KEY_DOWN)
-		move_player(game,  0, 1);
+		move_player(game, 0, 1);
 	else if (key == KEY_A || key == KEY_LEFT)
 		move_player(game, -1, 0);
 	else if (key == KEY_D || key == KEY_RIGHT)
@@ -52,5 +52,5 @@ void	set_hooks(t_game *game)
 	mlx_key_hook(game->window, handle_keypress, game);
 	mlx_hook(game->window, 17, 0, close_window, game);
 	mlx_expose_hook(game->window, expose_hook, game);
-//	mlx_loop_hook(game->mlx, animation_loop, game);
+	mlx_loop_hook(game->mlx, animation_loop, game);
 }

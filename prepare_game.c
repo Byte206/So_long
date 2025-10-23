@@ -46,7 +46,7 @@ void	prepare_game(t_game *game)
 	game->window_width = game->width * 64;
 	game->window_height = game->height * 64 + 30;
 	game->window = mlx_new_window(game->mlx, game->window_width,
-							   game->window_height, "So Long");
+			game->window_height, "So Long");
 	if (!game->window)
 		exit_error("Error creating window\n");
 	get_position_and_count(game);

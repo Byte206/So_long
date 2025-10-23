@@ -36,9 +36,9 @@ static void	check_width(char **map)
 
 static void	check_repeated(char **map)
 {
-	int i;
-	int j;
-	int count;
+	int	i;
+	int	j;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -64,7 +64,5 @@ char	**check_map(char *map_file)
 	check_extension(map_file);
 	map = set_map(map_file);
 	check_width(map);
-	check_repeated(map);
-
 	return (map);
 }

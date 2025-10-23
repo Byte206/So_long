@@ -15,7 +15,7 @@
 static void	render_tile(t_game *game, int x, int y, char tile)
 {
 	void	*img;
-	
+
 	if (tile == '1')
 		img = game->img_wall;
 	if (tile == '0')
@@ -33,11 +33,10 @@ static void	render_tile(t_game *game, int x, int y, char tile)
 	}
 }
 
-
 static void	render_one_tile(t_game *game, int x, int y)
 {
 	mlx_put_image_to_window(game->mlx, game-> window, game->img_floor,
-				x * TILE_SIZE, y * TILE_SIZE);
+		x * TILE_SIZE, y * TILE_SIZE);
 	if (game->player_x == x && game->player_y == y)
 		render_tile(game, x, y, 'P');
 	else

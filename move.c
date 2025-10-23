@@ -40,7 +40,6 @@ static int	move_is_valid(t_game *game, int x, int y)
 	return (1);
 }
 
-
 void	move_player(t_game *game, int x, int y)
 {
 	int	new_x;
