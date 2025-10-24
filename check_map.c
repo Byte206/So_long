@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
+/*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:18:47 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/21 19:31:50 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 09:39:24 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ char	**check_map(char *map_file)
 	check_extension(map_file);
 	map = set_map(map_file);
 	check_width(map);
+	check_repeated(map);
 	return (map);
 }

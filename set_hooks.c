@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
+/*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:46:23 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/22 18:11:53 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 09:40:32 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ void	set_hooks(t_game *game)
 	mlx_key_hook(game->window, handle_keypress, game);
 	mlx_hook(game->window, 17, 0, close_window, game);
 	mlx_expose_hook(game->window, expose_hook, game);
-	mlx_loop_hook(game->mlx, animation_loop, game);
+	//mlx_loop_hook(game->mlx, animation_loop, game);
 }

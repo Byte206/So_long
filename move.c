@@ -26,7 +26,7 @@ static void	make_move(t_game *game, int x, int y)
 	}
 	game->player_x = x;
 	game->player_y = y;
-	game->moves++;
+	game->move_count++;
 }
 
 static int	move_is_valid(t_game *game, int x, int y)

@@ -27,6 +27,15 @@
 # define FLOOR '0'
 # define EXIT 'E'
 # define PLAYER 'P'
+
+
+# define WALL_SPRITE "textures/WALL.xpm"
+# define FLOOR_SPRITE "textures/FLOOR.xpm"
+# define EXIT_SPRITE  "textures/EXIT.xpm"
+# define PLAYER_SPRITE	"textures/PLAYER.xpm"
+# define COLLECTIBLE_SPRITE	"textures/COLLECTIBLE.xpm"
+
+
 # define TILE_SIZE 64
 # define KEY_ESC 53
 # define KEY_W 119

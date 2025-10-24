@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
+/*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:31:56 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/21 19:38:13 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 09:39:58 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ char	**set_map(char *map_file)
 	int		fd;
 	int		len;
 	char	**map;
-	char	*str;
 
 	fd = open(map_file, O_RDONLY);
 	i = 0;
