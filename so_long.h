@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:59:53 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 18:31:40 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:29:14 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,10 @@ typedef struct s_game
 	void	*img_exit;
 }	t_game;
 
-char	**set_map(char *map_file);
+
+void	free_game(t_game *game);
 char	**check_map(char *map_file);
-void	exit_error(char *str);
+void	exit_error(t_game *game, char *str);
 //render_map.c
 void	render_map(t_game *game);
 //check_map.c
@@ -89,13 +90,13 @@ int		handle_keypress(int key, t_game *game);
 int		close_window(t_game *game);
 void	exit_game(t_game *game);
 //set_map.c
-char	**set_map(char *map_file);
+char	**set_map(const char *map_file);
 //images.c
 void	load_images(t_game *game);
 // move.c
 void	move_player(t_game *game, int x, int y);
 //flood_fill.c
-void	flood_fill(char **map);
+void	flood_fill(t_game *game);
 void	free_matrix(char **m);
 
 #endif

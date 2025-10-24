@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:05:02 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 16:36:07 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:25:15 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ void	load_images(t_game *game)
 		|| !game->img_player_moving_right || !game->img_player_moving_left
 		|| !game->img_player_moving_up)
 	{
-		exit_error("Error creating images\n");
+		exit_error(game, "Error creating images\n");
 	}
 }

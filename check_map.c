@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:18:47 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 18:47:16 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:21:14 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	check_extension(char *map_file)
 
 	i = ft_strlen(map_file);
 	if (ft_strncmp(map_file + i - 4, ".ber", 4) != 0 || i < 4)
-		exit_error("Wrong file extension\n");
+		exit_error(NULL, "Wrong file extension\n");
 }
 
 static size_t	line_len(const char *s)
@@ -39,13 +39,13 @@ static void	check_width(char **map)
     int		i;
 
     if (!map || !map[0])
-        exit_error("Empty map\n");
+        exit_error(NULL, "Empty map\n");
     expected = line_len(map[0]);
     i = 0;
     while (map[i])
     {
         if (line_len(map[i]) != expected)
-            exit_error("Map lines don't have same width\n");
+            exit_error(NULL, "Map lines don't have same width\n");
         i++;
     }
 }
@@ -63,7 +63,7 @@ static void	check_invalid(char **map)
 		{
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C'
 				&& map[i][j] != 'E' && map[i][j] != 'P' && map[i][j] != '\n')
-				exit_error("Invalid character in map\n");
+				exit_error(NULL, "Invalid character in map\n");
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:46:23 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 16:34:28 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:04:37 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	exit_game(t_game *game)
 {
-	if (game->window)
-		mlx_destroy_window(game->mlx, game->window);
+	free_game(game);
 	exit (0);
 }
 

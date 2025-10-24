@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 21:41:30 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 18:34:22 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:13:27 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,14 @@ void	prepare_game(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		exit_error("Mlx error\n");
+		exit_error(game, "Mlx error\n");
 	set_size(game);
-	ft_printf("Window size: %d x %d\n", game->width * 64, game->height * 64);
 	game->window_width = game->width * 64;
 	game->window_height = game->height * 64;
 	game->window = mlx_new_window(game->mlx, game->window_width,
 			game->window_height, "So Long");
 	if (!game->window)
-		exit_error("Error creating window\n");
+		exit_error(game, "Error creating window\n");
 	get_position_and_count(game);
 	load_images(game);
 	set_hooks(game);
