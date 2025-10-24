@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 18:13:03 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 15:57:08 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:24:53 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ static void	draw_player(t_game *game)
         pimg = game->img_player_moving_right;
     else if (game->player_direction == MOVING_LEFT && game->img_player_moving_left)
         pimg = game->img_player_moving_left;
+	else if (game->player_direction == MOVING_UP && game->img_player_moving_up)
+        pimg = game->img_player_moving_up;
+	else if (game->player_direction == MOVING_DOWN && game->img_player)
+		pimg = game->img_player;
     if (!pimg)
     {
         ft_printf("render_map: player image NULL\n");
