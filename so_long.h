@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:59:53 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/21 13:51:41 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:21:46 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,25 @@
 # define EXIT_SPRITE  "textures/EXIT.xpm"
 # define PLAYER_SPRITE	"textures/PLAYER.xpm"
 # define COLLECTIBLE_SPRITE	"textures/COLLECTIBLE.xpm"
+# define MOVING_RIGHT_SPRITE "textures/MOVING_RIGHT.xpm"
+# define MOVING_LEFT_SPRITE "textures/MOVING_LEFT.xpm"
+# define MOVING_UP_SPRITE "textures/MOVING_UP.xpm"
 
 
 # define TILE_SIZE 64
-# define KEY_ESC 53
+# define KEY_ESC 65307
 # define KEY_W 119
-# define KEY_UP 126
-# define KEY_A 0
-# define KEY_LEFT 123
-# define KEY_S 1
-# define KEY_DOWN 125 
-# define KEY_D 2
-# define KEY_RIGHT 124 
+# define KEY_UP 65362
+# define KEY_A 97
+# define KEY_LEFT 65361
+# define KEY_S 115
+# define KEY_DOWN 65364
+# define KEY_D 100
+# define KEY_RIGHT 65363
 # define MOVING_RIGHT 1
 # define MOVING_LEFT 2
+# define MOVING_UP 3
+# define MOVING_DOWN 4
 
 
 
@@ -87,6 +92,7 @@ typedef struct s_game
 	void	*img_player;
 	void	*img_player_moving_right;
 	void	*img_player_moving_left;
+	void	*img_player_moving_up;
 	void	*img_collectible;
   void	*img_exit;
 }	t_game;
@@ -112,6 +118,7 @@ void	set_hooks(t_game *game);
 int	expose_hook(t_game *game);
 int	handle_keypress(int key, t_game *game);
 int	close_window(t_game *game);
+void	exit_game(t_game *game);
 
 //set_map.c
 char	**set_map(char *map_file);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamorcil <gamorcil@42.fr>                  +#+  +:+       +#+        */
+/*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 18:51:37 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/22 18:54:39 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:22:03 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	make_move(t_game *game, int x, int y)
 {
 	if (game->map[y][x] == 'C')
 	{
-		game->map[y][x] == FLOOR;
+		game->map[y][x] = FLOOR;
 		game->collectibles--;
 	}
 	if (game->map[y][x] == EXIT && game->collectibles == 0)
@@ -27,16 +27,27 @@ static void	make_move(t_game *game, int x, int y)
 	game->player_x = x;
 	game->player_y = y;
 	game->move_count++;
+	ft_printf("Player moved\n");
 }
 
 static int	move_is_valid(t_game *game, int x, int y)
 {
 	if (game->map[y][x] == WALL)
+	{
+		ft_printf("There is a wall there!\n");
 		return (0);
+	}
 	if (game->map[y][x] == EXIT && game->collectibles > 0)
+	{
+		ft_printf("You need to collect all collectibles before exiting!\n");
 		return (0);
+	}
 	if ((x < 0 || x >= game->width) || (y < 0 || y >= game->height))
+	{
+		ft_printf("Out of bounds move!\n");
 		return (0);
+	}
+	ft_printf("Move is valid\n");
 	return (1);
 }
 
@@ -45,12 +56,20 @@ void	move_player(t_game *game, int x, int y)
 	int	new_x;
 	int	new_y;
 
+	ft_printf("Attempting to move player...\n");
 	new_x = game->player_x + x;
 	new_y = game->player_y + y;
 	if (x > 0)
 		game->player_direction = MOVING_RIGHT;
-	else
+	else if (x < 0)
 		game->player_direction = MOVING_LEFT;
+	else if (y < 0)
+		game->player_direction = MOVING_UP;
+	else if (y > 0)
+		game->player_direction = MOVING_DOWN;
 	if (move_is_valid(game, new_x, new_y))
+	{
 		make_move(game, new_x, new_y);
+		ft_printf("Movement count: %d\n", game->move_count);
+	}
 }
