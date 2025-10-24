@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:59:06 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 16:12:46 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:36:21 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ int	main(int argc, char **argv)
         free(game);
         exit_error("Error loading map\n");
     }
-    ft_printf("Map loaded successfully\n");
     prepare_game(game);
-    ft_printf("starting game...\n");
     mlx_loop(game->mlx);
     return (0);
 }

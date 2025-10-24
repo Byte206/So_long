@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:05:02 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 16:23:43 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:36:07 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,9 @@ static void	load_basic_img(t_game *game)
     int	h = TILE_SIZE;
 
     game->img_wall = mlx_xpm_file_to_image(game->mlx, WALL_SPRITE, &w, &h);
-    ft_printf("Loaded wall image\n");
     game->img_floor = mlx_xpm_file_to_image(game->mlx, FLOOR_SPRITE, &w, &h);
-    ft_printf("Loaded floor image\n");
     game->img_collectible = mlx_xpm_file_to_image(game->mlx, COLLECTIBLE_SPRITE, &w, &h);
-    ft_printf("Loaded collectible image\n");
     game->img_exit = mlx_xpm_file_to_image(game->mlx, EXIT_SPRITE, &w, &h);
-    ft_printf("Loaded exit image\n");
 }
 
 static void	load_player_img(t_game *game)
@@ -40,7 +36,6 @@ static void	load_player_img(t_game *game)
 
 void	load_images(t_game *game)
 {
-    ft_printf("Loading basic images...\n");
     load_basic_img(game);
     load_player_img(game);
 	if (!game->img_wall || !game->img_floor || !game->img_collectible
@@ -50,5 +45,4 @@ void	load_images(t_game *game)
     {
         exit_error("Error creating images\n");
     }	
-    ft_printf("Images loaded successfully\n");
 }
