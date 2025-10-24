@@ -34,31 +34,27 @@ static void	check_width(char **map)
 		}
 		i++;
 	}
-	/*if ((ft_strlen(map[i])) != ft_strlen(map[i + 1]))
+	if ((ft_strlen(map[i])) != ft_strlen(map[i + 1]))
 	{
 		exit_error("Map lines dosent have same width\n");
-	} */
+	}
 }
 
 static void	check_repeated(char **map)
 {
 	int	i;
 	int	j;
-	int	player_count;
-	int	exit_count;
+	int	count;
 
 	i = 0;
-	player_count = 0;
-	exit_count = 0;
+	count = 0;
 	while (map[i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == 'P')
-				player_count++;
-			if (map[i][j] == 'E')
-				exit_count++;
+			if (map[i][j] == 'P' || map[i][j] == 'E')
+				count++;
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C'
 				&& map[i][j] != 'E' && map[i][j] != 'P' && map[i][j] != '\n')
 				exit_error("Invalid character in map\n");
@@ -66,7 +62,7 @@ static void	check_repeated(char **map)
 		}
 		i++;
 	}
-	if (player_count != 1 || exit_count <= 0)
+	if (count < 2)
 		exit_error("Wrong number of exits or players in map\n");
 }
 

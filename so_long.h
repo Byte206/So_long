@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:59:53 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 16:21:46 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 18:31:40 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,10 @@
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
 # include "ft_printf/ft_printf.h"
-
-
 # define WALL '1'
 # define FLOOR '0'
 # define EXIT 'E'
 # define PLAYER 'P'
-
-
 # define WALL_SPRITE "textures/WALL.xpm"
 # define FLOOR_SPRITE "textures/FLOOR.xpm"
 # define EXIT_SPRITE  "textures/EXIT.xpm"
@@ -37,8 +33,6 @@
 # define MOVING_RIGHT_SPRITE "textures/MOVING_RIGHT.xpm"
 # define MOVING_LEFT_SPRITE "textures/MOVING_LEFT.xpm"
 # define MOVING_UP_SPRITE "textures/MOVING_UP.xpm"
-
-
 # define TILE_SIZE 64
 # define KEY_ESC 65307
 # define KEY_W 119
@@ -53,24 +47,6 @@
 # define MOVING_LEFT 2
 # define MOVING_UP 3
 # define MOVING_DOWN 4
-
-
-
-typedef struct s_counts
-{
-  int player_count;
-  int exit_count;
-  int collect_count;
-
-} t_counts;
-
-typedef struct s_flood_data
-{
-  int width;
-  int height;
-  int c_found;
-  int e_found;
-} t_flood_data;
 
 typedef struct s_game
 {
@@ -94,41 +70,32 @@ typedef struct s_game
 	void	*img_player_moving_left;
 	void	*img_player_moving_up;
 	void	*img_collectible;
-  void	*img_exit;
+	void	*img_exit;
 }	t_game;
-
 
 char	**set_map(char *map_file);
 char	**check_map(char *map_file);
 void	exit_error(char *str);
-
-
 //render_map.c
 void	render_map(t_game *game);
-
 //check_map.c
 char	**check_map(char *map_file);
-
-
 //prepare_game.c
 void	prepare_game(t_game *game);
-
 //set_hooks.c
 void	set_hooks(t_game *game);
-int	expose_hook(t_game *game);
-int	handle_keypress(int key, t_game *game);
-int	close_window(t_game *game);
+int		expose_hook(t_game *game);
+int		handle_keypress(int key, t_game *game);
+int		close_window(t_game *game);
 void	exit_game(t_game *game);
-
 //set_map.c
 char	**set_map(char *map_file);
-
 //images.c
 void	load_images(t_game *game);
-
 // move.c
 void	move_player(t_game *game, int x, int y);
-
-
+//flood_fill.c
+void	flood_fill(char **map);
+void	free_matrix(char **m);
 
 #endif
