@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:05:02 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 19:25:15 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 20:29:03 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,20 @@ static void	load_player_img(t_game *game)
 	w = 64;
 	h = 64;
 	game->img_player = mlx_xpm_file_to_image(game->mlx, PLAYER_SPRITE, &w, &h);
+	if (!game->img_player)
+		exit_error(game, "Error creating player image\n");
 	game->img_player_moving_right = mlx_xpm_file_to_image(game->mlx,
 			MOVING_RIGHT_SPRITE, &w, &h);
+	if (!game->img_player_moving_right)
+		exit_error(game, "Error creating moving right image\n");
 	game->img_player_moving_left = mlx_xpm_file_to_image(game->mlx,
 			MOVING_LEFT_SPRITE, &w, &h);
+	if (!game->img_player_moving_left)
+		exit_error(game, "Error creating moving left image\n");
 	game->img_player_moving_up = mlx_xpm_file_to_image(game->mlx,
 			MOVING_UP_SPRITE, &w, &h);
+	if (!game->img_player_moving_up)
+		exit_error(game, "Error creating moving up image\n");
 }
 
 void	load_images(t_game *game)
