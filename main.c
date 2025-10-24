@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:59:06 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 19:26:30 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:43:38 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,41 @@
 
 void	free_matrix(char **m)
 {
-    int	i;
+	int	i;
 
-    if (!m)
-        return ;
-    i = 0;
-    while (m[i])
-    {
-        free(m[i]);
-        i++;
-    }
-    free(m);
+	if (!m)
+		return ;
+	i = 0;
+	while (m[i])
+	{
+		free(m[i]);
+		i++;
+	}
+	free(m);
 }
 
 void	free_game(t_game *game)
 {
-    if (!game)
-        return ;
-    if (game->mlx && game->window)
-        mlx_destroy_window(game->mlx, game->window);
-    if (game->mlx && game->img_wall)
-        mlx_destroy_image(game->mlx, game->img_wall);
-    if (game->mlx && game->img_floor)
-        mlx_destroy_image(game->mlx, game->img_floor);
-    if (game->mlx && game->img_collectible)
-        mlx_destroy_image(game->mlx, game->img_collectible);
-    if (game->mlx && game->img_exit)
-        mlx_destroy_image(game->mlx, game->img_exit);
-    if (game->mlx && game->img_player)
-        mlx_destroy_image(game->mlx, game->img_player);
-    if (game->mlx && game->img_player_moving_right)
-        mlx_destroy_image(game->mlx, game->img_player_moving_right);
-    if (game->mlx && game->img_player_moving_left)
-        mlx_destroy_image(game->mlx, game->img_player_moving_left);
-    free_matrix(game->map);
-    free(game);
+	if (!game)
+		return ;
+	if (game->mlx && game->window)
+		mlx_destroy_window(game->mlx, game->window);
+	if (game->mlx && game->img_wall)
+		mlx_destroy_image(game->mlx, game->img_wall);
+	if (game->mlx && game->img_floor)
+		mlx_destroy_image(game->mlx, game->img_floor);
+	if (game->mlx && game->img_collectible)
+		mlx_destroy_image(game->mlx, game->img_collectible);
+	if (game->mlx && game->img_exit)
+		mlx_destroy_image(game->mlx, game->img_exit);
+	if (game->mlx && game->img_player)
+		mlx_destroy_image(game->mlx, game->img_player);
+	if (game->mlx && game->img_player_moving_right)
+		mlx_destroy_image(game->mlx, game->img_player_moving_right);
+	if (game->mlx && game->img_player_moving_left)
+		mlx_destroy_image(game->mlx, game->img_player_moving_left);
+	free_matrix(game->map);
+	free(game);
 }
 
 static void	check_player_and_exit(char **map)

@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 17:00:39 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 19:28:48 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:49:33 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,31 @@
 
 char	**copy_map(char **map)
 {
-    int		rows;
-    int		i;
-    char	**new;
+	int		rows;
+	int		i;
+	char	**new;
 
-    if (!map)
-        return (NULL);
-    rows = 0;
-    while (map[rows])
-        rows++;
-    new = malloc(sizeof(char *) * (rows + 1));
-    if (!new)
-        return (NULL);
-    i = 0;
-    while (i < rows)
-    {
-        new[i] = ft_strdup(map[i]);
-        if (!new[i])
-        {
-            new[i] = NULL;
-            free_matrix(new);
-            return (NULL);
-        }
-        i++;
-    }
-    new[rows] = NULL;
-    return (new);
+	if (!map)
+		return (NULL);
+	rows = 0;
+	while (map[rows])
+		rows++;
+	new = malloc(sizeof(char *) * (rows + 1));
+	if (!new)
+		return (NULL);
+	i = 0;
+	while (i < rows)
+	{
+		new[i] = ft_strdup(map[i]);
+		if (!new[i])
+		{
+			free_matrix(new);
+			return (NULL);
+		}
+		i++;
+	}
+	new[rows] = NULL;
+	return (new);
 }
 
 static void	ff_fill(char **m, int x, int y)

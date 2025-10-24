@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:31:56 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 19:24:51 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:56:29 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,73 +14,74 @@
 
 static char	*trim_newline_and_dup(char *s)
 {
-    size_t	len;
+	size_t	len;
 
-    if (!s)
-        return (NULL);
-    len = ft_strlen(s);
-    if (len > 0 && s[len - 1] == '\n')
-        s[len - 1] = '\0';
-    return (ft_strdup(s));
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	if (len > 0 && s[len - 1] == '\n')
+		s[len - 1] = '\0';
+	return (ft_strdup(s));
+}
+
+static void	cleanup_on_fail(char **map, int filled, int fd)
+{
+	while (--filled >= 0)
+		free(map[filled]);
+	free(map);
+	if (fd >= 0)
+		close(fd);
+	exit_error(NULL, "Malloc failed\n");
 }
 
 int	get_num_of_lines(const char *path)
 {
-    int		fd;
-    char	*line;
-    int		count;
+	int		fd;
+	char	*line;
+	int		count;
 
-    fd = open(path, O_RDONLY);
-    if (fd < 0)
-        exit_error(NULL, "Could not open map file\n");
-    count = 0;
-    while (1)
-    {
-        line = get_next_line(fd);
-        if (!line)
-            break ;
-        free(line); /* liberar el buffer que get_next_line devuelve */
-        count++;
-    }
-    close(fd);
-    return (count);
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		exit_error(NULL, "Could not open map file\n");
+	count = 0;
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		free(line);
+		count++;
+	}
+	close(fd);
+	return (count);
 }
 
 char	**set_map(const char *map_file)
 {
-    int		fd;
-    char	*line;
-    int		lines;
-    char	**map;
-    int		i;
+	int		fd;
+	int		lines;
+	int		i;
+	char	*line;
+	char	**map;
 
-    lines = get_num_of_lines(map_file);
-    map = malloc(sizeof(char *) * (lines + 1));
-    if (!map)
-        exit_error(NULL, "Malloc failed\n");
-    fd = open(map_file, O_RDONLY);
-    if (fd < 0)
-        exit_error(NULL, "Could not open map file\n");
-    i = 0;
-    while (i < lines)
-    {
-        line = get_next_line(fd);
-        map[i] = trim_newline_and_dup(line);
-        free(line); /* liberar siempre la línea original */
-        if (!map[i])
-        {
-            /* liberar lo ya asignado */
-            while (--i >= 0)
-                free(map[i]);
-            free(map);
-            close(fd);
-            exit_error(NULL, "Malloc failed\n");
-        }
-        i++;
-    }
-    map[lines] = NULL;
-    close(fd);
-    return (map);
+	lines = get_num_of_lines(map_file);
+	map = malloc(sizeof(*map) * (lines + 1));
+	fd = open(map_file, O_RDONLY);
+	if (fd < 0 || !map)
+		exit_error(NULL, "Error\n");
+	i = 0;
+	while (i < lines)
+	{
+		line = get_next_line(fd);
+		map[i] = trim_newline_and_dup(line);
+		free(line);
+		if (!map[i])
+			cleanup_on_fail(map, i, fd);
+		i++;
+	}
+	map[lines] = NULL;
+	close(fd);
+	return (map);
 }
 
 void	exit_error(t_game *game, char *str)
@@ -90,4 +91,3 @@ void	exit_error(t_game *game, char *str)
 		free_game(game);
 	exit(1);
 }
-

@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:59:53 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 19:29:14 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:50:45 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ typedef struct s_game
 	void	*img_collectible;
 	void	*img_exit;
 }	t_game;
-
 
 void	free_game(t_game *game);
 char	**check_map(char *map_file);

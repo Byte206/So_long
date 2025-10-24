@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:18:47 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 19:21:14 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:49:00 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,31 +23,31 @@ static void	check_extension(char *map_file)
 
 static size_t	line_len(const char *s)
 {
-    size_t len;
+	size_t	len;
 
-    if (!s)
-        return (0);
-    len = ft_strlen(s);
-    if (len > 0 && s[len - 1] == '\n')
-        return (len - 1);
-    return (len);
+	if (!s)
+		return (0);
+	len = ft_strlen(s);
+	if (len > 0 && s[len - 1] == '\n')
+		return (len - 1);
+	return (len);
 }
 
 static void	check_width(char **map)
 {
-    size_t	expected;
-    int		i;
+	size_t	expected;
+	int		i;
 
-    if (!map || !map[0])
-        exit_error(NULL, "Empty map\n");
-    expected = line_len(map[0]);
-    i = 0;
-    while (map[i])
-    {
-        if (line_len(map[i]) != expected)
-            exit_error(NULL, "Map lines don't have same width\n");
-        i++;
-    }
+	if (!map || !map[0])
+		exit_error(NULL, "Empty map\n");
+	expected = line_len(map[0]);
+	i = 0;
+	while (map[i])
+	{
+		if (line_len(map[i]) != expected)
+			exit_error(NULL, "Map lines don't have same width\n");
+		i++;
+	}
 }
 
 static void	check_invalid(char **map)
