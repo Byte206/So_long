@@ -6,7 +6,7 @@
 #    By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/21 20:59:27 by gamorcil          #+#    #+#              #
-#    Updated: 2025/10/24 17:29:17 by gamorcil         ###   ########.fr        #
+#    Updated: 2025/10/24 18:36:52 by gamorcil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ INCLUDES = -I. -I./libft -I./ft_printf -I./gnl -I./minilibx-linux
 SRCS = main.c \
        check_map.c \
        set_map.c \
-       error.c \
 	   render_map.c \
 	   prepare_game.c \
 	   set_hooks.c \

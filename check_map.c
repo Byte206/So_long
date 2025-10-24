@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:18:47 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 15:08:49 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/24 18:47:16 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,40 +21,46 @@ static void	check_extension(char *map_file)
 		exit_error("Wrong file extension\n");
 }
 
-static void	check_width(char **map)
+static size_t	line_len(const char *s)
 {
-	int	i;
+    size_t len;
 
-	i = 0;
-	while (map[i + 2])
-	{
-		if (ft_strlen(map[i]) != ft_strlen(map[i + 1]))
-		{
-			exit_error("Map lines dosent have same width\n");
-		}
-		i++;
-	}
-	if ((ft_strlen(map[i])) != ft_strlen(map[i + 1]))
-	{
-		exit_error("Map lines dosent have same width\n");
-	}
+    if (!s)
+        return (0);
+    len = ft_strlen(s);
+    if (len > 0 && s[len - 1] == '\n')
+        return (len - 1);
+    return (len);
 }
 
-static void	check_repeated(char **map)
+static void	check_width(char **map)
+{
+    size_t	expected;
+    int		i;
+
+    if (!map || !map[0])
+        exit_error("Empty map\n");
+    expected = line_len(map[0]);
+    i = 0;
+    while (map[i])
+    {
+        if (line_len(map[i]) != expected)
+            exit_error("Map lines don't have same width\n");
+        i++;
+    }
+}
+
+static void	check_invalid(char **map)
 {
 	int	i;
 	int	j;
-	int	count;
 
 	i = 0;
-	count = 0;
 	while (map[i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == 'P' || map[i][j] == 'E')
-				count++;
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C'
 				&& map[i][j] != 'E' && map[i][j] != 'P' && map[i][j] != '\n')
 				exit_error("Invalid character in map\n");
@@ -62,8 +68,6 @@ static void	check_repeated(char **map)
 		}
 		i++;
 	}
-	if (count < 2)
-		exit_error("Wrong number of exits or players in map\n");
 }
 
 char	**check_map(char *map_file)
@@ -73,7 +77,6 @@ char	**check_map(char *map_file)
 	check_extension(map_file);
 	map = set_map(map_file);
 	check_width(map);
-	check_repeated(map);
-	ft_printf("Map checks passed successfully\n");
+	check_invalid(map);
 	return (map);
 }
