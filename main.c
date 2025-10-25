@@ -49,7 +49,8 @@ void	free_game(t_game *game)
 		mlx_destroy_image(game->mlx, game->img_player_moving_left);
 	if (game->img_player_moving_up)
 		mlx_destroy_image(game->mlx, game->img_player_moving_up);
-	mlx_destroy_display(game->mlx);
+	if (game->mlx)
+		mlx_destroy_display(game->mlx);
 	free_matrix(game->map);
 	free(game);
 }
@@ -110,7 +111,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		exit_error(NULL, "Wrong arguments\nUsage: ./so_long.h [file_to_map]\n");
-	game = calloc(1, sizeof(t_game));
+	game = ft_calloc(1, sizeof(t_game));
 	if (!game)
 	{
 		exit_error(NULL, "Malloc failed\n");

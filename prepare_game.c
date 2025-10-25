@@ -44,14 +44,11 @@ void	prepare_game(t_game *game)
 	game->height = 0;
 	while (game->map[game->height])
 		game->height++;
-	
-	ft_printf("Map dimensions: %d x %d\n", game->width, game->height);
-	
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		exit_error(game, "Error initializing mlx\n");
 	game->window = mlx_new_window(game->mlx, game->width * TILE_SIZE,
-		game->height * TILE_SIZE, "so_long");
+			game->height * TILE_SIZE, "so_long");
 	if (!game->window)
 		exit_error(game, "Error creating window\n");
 	get_position_and_count(game);
