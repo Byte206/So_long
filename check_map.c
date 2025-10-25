@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:18:47 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 19:49:00 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:24:28 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ char	**check_map(char *map_file)
 	map = set_map(map_file);
 	check_width(map);
 	check_invalid(map);
+	check_wall(map);
 	return (map);
 }

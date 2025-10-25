@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:59:06 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 20:30:12 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:31:14 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ int	main(int argc, char **argv)
 		free(game);
 		exit_error(NULL, "Error loading map\n");
 	}
+	ft_printf("Map width:%d\n", ft_strlen(game->map[0]));
 	check_player_and_exit(game->map);
 	check_collectibles(game->map);
 	flood_fill(game);

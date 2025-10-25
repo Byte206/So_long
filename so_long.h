@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:59:53 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 19:50:45 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:21:46 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	exit_error(t_game *game, char *str);
 void	render_map(t_game *game);
 //check_map.c
 char	**check_map(char *map_file);
+void	check_wall(char **map);
 //prepare_game.c
 void	prepare_game(t_game *game);
 //set_hooks.c

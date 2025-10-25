@@ -6,7 +6,7 @@
 /*   By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 19:31:56 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/10/24 19:56:29 by gamorcil         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:26:45 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,19 @@
 static char	*trim_newline_and_dup(char *s)
 {
 	size_t	len;
+	char	*dup;
 
 	if (!s)
 		return (NULL);
 	len = ft_strlen(s);
 	if (len > 0 && s[len - 1] == '\n')
-		s[len - 1] = '\0';
-	return (ft_strdup(s));
+		len--;
+	dup = malloc(sizeof(char) * (len + 1));
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s, len);
+	dup[len] = '\0';
+	return (dup);
 }
 
 static void	cleanup_on_fail(char **map, int filled, int fd)

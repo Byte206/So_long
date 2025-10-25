@@ -6,7 +6,7 @@
 #    By: gamorcil <gamorcil@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/21 20:59:27 by gamorcil          #+#    #+#              #
-#    Updated: 2025/10/24 18:36:52 by gamorcil         ###   ########.fr        #
+#    Updated: 2025/10/25 13:22:16 by gamorcil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS = main.c \
 	   images.c \
 	   move.c \
 	   flood_fill.c \
+	   check_map_utils.c \
        gnl/get_next_line.c \
        gnl/get_next_line_utils.c
 
