@@ -122,7 +122,6 @@ int	main(int argc, char **argv)
 		free(game);
 		exit_error(NULL, "Error loading map\n");
 	}
-	ft_printf("Map width:%d\n", ft_strlen(game->map[0]));
 	check_player_and_exit(game->map);
 	check_collectibles(game->map);
 	flood_fill(game);
